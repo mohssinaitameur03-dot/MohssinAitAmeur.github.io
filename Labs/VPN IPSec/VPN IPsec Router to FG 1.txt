@@ -1,0 +1,100 @@
+1-The Router Config :
+
+crypto ikev2 proposal PROP-1
+ encryption des
+ integrity sha256
+ group 14
+!
+crypto ikev2 policy POL-1
+ proposal PROP-1
+!
+crypto ikev2 keyring KEY-1
+ peer FORTIGATE
+  address 192.168.136.133          >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> the remote IP add of the FG
+  pre-shared-key Admin@123
+ !
+!
+!
+crypto ikev2 profile PROFILE-1
+ match identity remote address 192.168.136.133 255.255.255.255
+ identity local address 192.168.136.132
+ authentication remote pre-share
+ authentication local pre-share
+ keyring local KEY-1
+!
+!
+!
+crypto ipsec transform-set TSET esp-des esp-sha256-hmac
+ mode tunnel
+!
+crypto ipsec profile IPSEC-PROF
+ set transform-set TSET
+ set ikev2-profile PROFILE-1
+!
+!
+!
+!
+!
+!
+!
+interface Tunnel1
+ ip address 10.255.255.1 255.255.255.252   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> the IP adr of the tunnel1
+ tunnel source 192.168.136.132
+ tunnel mode ipsec ipv4
+ tunnel destination 192.168.136.133
+ tunnel protection ipsec profile IPSEC-PROF
+
+
+2-The FortiGate Config :
+
+vpn ipsec phase1-interface :
+
+config vpn ipsec phase1-interface
+    edit "To-Cisco"
+        set interface "port1"
+        set ike-version 2
+        set keylife 28800
+        set peertype any
+        set net-device disable
+        set proposal des-sha256
+        set dhgrp 14
+        set remote-gw 192.168.136.132
+        set psksecret ENC Admin@123
+    next
+end
+
+
+ vpn ipsec phase2-interface :
+
+
+config vpn ipsec phase2-interface
+    edit "To-Cisco-P2"
+        set phase1name "To-Cisco"
+        set proposal des-sha256
+        set dhgrp 14
+    next
+end
+
+>>>> VERIFICATION 
+ON ROUTER:
+show crypto ipsec sa | include pkts
+       
+       Encaps: Should increase when you send data.
+
+       Decaps: Should increase when you receive data.
+
+
+show crypto ikev2 sa
+ 
+       Status: It should say READY. If it says IN-NEG or DELETED, the tunnel is unstable.
+
+
+
+
+
+
+
+
+
+
+
