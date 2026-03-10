@@ -1,0 +1,69 @@
+1. Cisco Router Configuration (VTI-Based)
+
+! IKEv2 Proposal & Policy
+crypto ikev2 proposal PROP-1
+ encryption des
+ integrity sha256
+ group 14
+!
+crypto ikev2 policy POL-1
+ proposal PROP-1
+!
+! Keyring and Authentication
+crypto ikev2 keyring KEY-1
+ peer FORTIGATE
+  address 192.168.136.133
+  pre-shared-key Admin@123
+!
+crypto ikev2 profile PROFILE-1
+ match identity remote address 192.168.136.133 255.255.255.255
+ identity local address 192.168.136.132
+ authentication remote pre-share
+ authentication local pre-share
+ keyring local KEY-1
+!
+! IPsec Transform-Set & Profile
+crypto ipsec transform-set TSET esp-des esp-sha256-hmac
+ mode tunnel
+!
+crypto ipsec profile IPSEC-PROF
+ set transform-set TSET
+ set ikev2-profile PROFILE-1
+!
+! Virtual Tunnel Interface (VTI)
+interface Tunnel1
+ ip address 10.255.255.1 255.255.255.252
+ tunnel source 192.168.136.132
+ tunnel destination 192.168.136.133
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile IPSEC-PROF
+
+2. FortiGate Configuration
+
+# Phase 1 Configuration
+config vpn ipsec phase1-interface
+    edit "To-Cisco"
+        set interface "port1"
+        set ike-version 2
+        set peertype any
+        set net-device disable
+        set proposal des-sha256
+        set dhgrp 14
+        set remote-gw 192.168.136.132
+        set psksecret Admin@123
+    next
+end
+
+# Phase 2 Configuration
+config vpn ipsec phase2-interface
+    edit "To-Cisco-P2"
+        set phase1name "To-Cisco"
+        set proposal des-sha256
+        set dhgrp 14
+    next
+end
+
+
+
+
+
