@@ -623,27 +623,31 @@ server {
 })();
 </script>
 <script>
-const BASE='https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/Labs/';
+const ROOT_BASE = 'https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/';
+const LABS_BASE = ROOT_BASE + 'Labs/';
+
 const PROJECTS={
   advpn:{
+    base: LABS_BASE,
     folder:'ADVPN/',
     images:['Topologie.png','DASH-SPOKE-A.png','DASH-SPOKE-B.png','DASH-SPOKE-HUB.png','VPC-A PING .png','VPC-B PING .png','execute traceroute 20.20.20.2.png','execute traceroute 30.30.30.2.png','get router info bgp network A.png','get router info bgp network B.png','get router info routing-table details 30.30.30.0.png','groupe-vpc-ping .png']
   },
   ipsec:{
+    base: LABS_BASE,
     folder:'VPN IPSec/',
     images:['Topologie.png','IPesc d1.png','IPsec D2.png','POLICY.png','VPC1.png','VPC2.png','get vpn ipsec tunnel details.png','show crypto ikev2 sa.png','show crypto ipsec sa include pkts.png','show vpn ipsec phase1-interface.png','show vpn ipsec phase2-interface.png']
   },
   tls:{
+    base: ROOT_BASE, /* Uses root path since folder is in root */
     folder:'Lab — TLS Reverse Proxy & Local PKI/', 
-    images:['firefox-padlock.png', 'openssl-handshake.png'] /* Both images are now added here */
+    images:['firefox-padlock.png', 'openssl-handshake.png'] 
   }
 };
 const galIdx={advpn:0,ipsec:0,tls:0};
 
-// Fix to handle spaces and special characters in the folder name
 function imgURL(proj,name){
   const safeFolder = PROJECTS[proj].folder.split('/').map(encodeURIComponent).join('/');
-  return BASE + safeFolder + encodeURIComponent(name);
+  return PROJECTS[proj].base + safeFolder + encodeURIComponent(name);
 }
 
 function initGallery(proj){
@@ -707,7 +711,7 @@ document.addEventListener('keydown',e=>{
 let cfgLoaded=false;
 function loadConfig(){
   if(cfgLoaded)return;
-  fetch(BASE+'VPN%20IPSec/config.txt')
+  fetch(LABS_BASE+'VPN%20IPSec/config.txt')
     .then(r=>{if(!r.ok)throw new Error(r.status);return r.text();})
     .then(t=>{document.getElementById('cfg-content').textContent=t;cfgLoaded=true;})
     .catch(()=>{document.getElementById('cfg-content').textContent='Could not load config.txt — ensure the file is publicly accessible in your GitHub repo.';});
