@@ -174,6 +174,22 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
 <section id="exp">
   <p class="slbl">// 01</p><h2>Experience</h2>
   <div class="tl">
+    
+    <!-- NEW MCOON EXPERIENCE ADDED HERE -->
+    <div class="ti">
+      <div class="td">Aug — Oct 2026</div>
+      <div class="tb">
+        <p class="tc">MCOON Morocco Ltd · Fes</p>
+        <p class="tr">Systems Engineer</p>
+        <ul class="tbl">
+          <li><strong>Security &amp; TLS:</strong> Managed TLS/SSL certificate renewals to ensure the security and continuity of IT services.</li>
+          <li><strong>Containerization:</strong> Managed Docker-based deployments using Docker Compose.</li>
+          <li><strong>Linux Administration:</strong> Administered and maintained Linux systems and provided IT support via Zammad.</li>
+          <li><strong>RMM Evaluation:</strong> Evaluated Netlock RMM against the company's monitoring and remote management needs.</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="ti"><div class="td">2024 — 2026</div><div class="tb"><p class="tc">Axians IT Solution · Marrakech</p><p class="tr">IT Network Technician (Agency Contract)</p><ul class="tbl"><li><strong>Network Infrastructure:</strong> Managed the configuration, deployment, and maintenance of enterprise-grade switches, routers, and firewalls to ensure maximum uptime.</li><li><strong>Network Supervision:</strong> Monitored network performance and traffic using supervision tools to proactively identify and resolve connectivity issues.</li><li><strong>Security &amp; Surveillance:</strong> Deployed and managed intelligent CCTV systems, utilizing AI-driven video analytics and integrated security protocols.</li><li><strong>Optimization:</strong> Performed regular hardware audits and firmware updates to enhance network security and operational efficiency.</li></ul></div></div>
     <div class="ti"><div class="td">2023 — 2024</div><div class="tb"><p class="tc">Telco-solution (Call centre) · Casablanca</p><p class="tr">Technical Support Technician (CDI)</p><ul class="tbl"><li><strong>Hardware Management:</strong> Installed, configured, and maintained IT hardware including workstations, printers, and peripheral devices.</li><li><strong>User Support:</strong> Provided end-user technical assistance and troubleshooting to ensure operational continuity.</li><li><strong>Troubleshooting:</strong> Diagnosed and resolved complex hardware and software failures.</li><li><strong>Infrastructure Oversight:</strong> Managed Local Area Networks (LAN) and monitored system performance to ensure stability.</li></ul></div></div>
     <div class="ti"><div class="td">Jul — Nov 2023</div><div class="tb"><p class="tc">Axians IT Solution · Marrakech</p><p class="tr">IT Network Technician Intern</p><ul class="tbl"><li>Supported infrastructure deployment and network hardware diagnostics.</li></ul></div></div>
@@ -247,6 +263,15 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
       </div>
       <div class="sn">AWS Cloud</div>
     </div>
+
+    <!-- NEW DOCKER / NGINX SKILL ADDED HERE -->
+    <div class="sc">
+      <div class="sc-logos">
+        <span class="lchip active"><img src="https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/Windows%20Server%20%26%20Linux%20OS%20Administration/linux%20logo.png" alt="Linux"/></span>
+      </div>
+      <div class="sn">Linux, Docker &amp; Nginx</div>
+    </div>
+
     <div class="sc">
       <div class="sc-logos multi">
         <span class="lchip"><img src="https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/Windows%20Server%20%26%20Linux%20OS%20Administration/linux%20logo.png" alt="Linux"/></span>
@@ -343,6 +368,44 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
       <div class="cfg-box"><pre id="cfg-content"><span style="color:var(--mu);font-style:italic">Loading config.txt…</span></pre></div>
     </div>
   </div>
+
+  <!-- NEW TLS REVERSE PROXY LAB ADDED HERE -->
+  <div class="proj-card" id="proj-tls">
+    <div class="ph">
+      <p class="ph-tag">Docker · Nginx · OpenSSL · PKI · TLS 1.3</p>
+      <p class="ph-title">Lab — TLS Reverse Proxy &amp; Local PKI</p>
+    </div>
+    <div class="ptabs">
+      <button class="ptab act" onclick="switchTab('tls','overview',this)">Overview</button>
+      <button class="ptab" onclick="switchTab('tls','gallery',this)">Gallery</button>
+    </div>
+    <div class="ppane act" id="tls-overview">
+      <p class="ov-lead">This lab demonstrates the implementation of a secure TLS/SSL architecture using containerized environments. It focuses on establishing a Reverse Proxy that terminates TLS traffic, while acting as a local Certificate Authority to issue and sign certificates.</p>
+      <p class="ov-st">Technical Specifications</p>
+      <ul class="spl">
+        <li><strong>Architecture:</strong> Deployed a Docker environment with an isolated backend web server (Nginx) and a frontend Reverse Proxy.</li>
+        <li><strong>Public Key Infrastructure (PKI):</strong> Simulated a Certificate Authority (CA) using <code>OpenSSL</code> to generate private keys, create Certificate Signing Requests (CSRs), and sign the server certificate.</li>
+        <li><strong>TLS Termination:</strong> Configured Nginx to handle HTTPS traffic on port 443, offloading encryption from the backend application.</li>
+        <li><strong>Security Hardening:</strong> Enforced TLS 1.2/1.3, configured secure cipher suites, and set up HTTP-to-HTTPS redirection.</li>
+        <li><strong>Trust Management:</strong> Imported the custom Root CA into the host machine and browser trust stores to ensure end-to-end validation.</li>
+      </ul>
+      <p class="ov-st">Validation</p>
+      <ul class="spl">
+        <li>Verified the complete TLS handshake and certificate chain using <code>openssl s_client</code>.</li>
+        <li>Confirmed HTTP-to-HTTPS redirection and secure backend connectivity via Docker bridge networking.</li>
+      </ul>
+    </div>
+    <div class="ppane" id="tls-gallery">
+      <div class="gal-wrap"><img class="gal-hero" id="tls-hero-img" src="" alt=""/></div>
+      <p class="gal-cap" id="tls-caption"></p>
+      <div class="gal-nav">
+        <button class="gal-btn" onclick="galStep('tls',-1)">&#8592;</button>
+        <button class="gal-btn" onclick="galStep('tls',1)">&#8594;</button>
+      </div>
+      <div class="gal-thumbs" id="tls-thumbs"></div>
+    </div>
+  </div>
+
 </section>
 <hr class="dv"/>
 
@@ -360,6 +423,7 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
   <p class="slbl">// 05</p><h2>Certifications</h2>
   <div class="cl">
     <div class="cb">Cisco Certified Network Associate (CCNA)</div>
+    <div class="cb">Cisco Certified CyberOps Associate (CBROPS)</div>
     <div class="cb">Fortinet Certified Associate</div>
     <div class="cb">Fortinet Certified Fundamentals</div>
     <div class="cb">IT Specialist — Cybersecurity</div>
@@ -402,7 +466,7 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
   <p class="dl-meta">PDF · Updated 2026</p>
 </section>
 
-<footer>&#169; 2025 Mohssine Ait Ameur — Deployed on AWS EC2</footer>
+<footer>&#169; 2026 Mohssine Ait Ameur — Deployed on AWS EC2</footer>
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLB(event)">
@@ -462,9 +526,13 @@ const PROJECTS={
   ipsec:{
     folder:'VPN IPSec/',
     images:['Topologie.png','IPesc d1.png','IPsec D2.png','POLICY.png','VPC1.png','VPC2.png','get vpn ipsec tunnel details.png','show crypto ikev2 sa.png','show crypto ipsec sa include pkts.png','show vpn ipsec phase1-interface.png','show vpn ipsec phase2-interface.png']
+  },
+  tls:{
+    folder:'TLS Proxy/',
+    images:['docker-compose.png','openssl-csr.png','firefox-padlock.png','nginx-config.png']
   }
 };
-const galIdx={advpn:0,ipsec:0};
+const galIdx={advpn:0,ipsec:0,tls:0};
 
 function imgURL(proj,name){return BASE+PROJECTS[proj].folder+encodeURIComponent(name);}
 
@@ -539,8 +607,6 @@ function copyConfig(){
     const b=document.querySelector('.cfg-copy');b.textContent='Copied!';setTimeout(()=>b.textContent='Copy',2000);
   });
 }
-
-
 </script>
 </body>
 </html>
