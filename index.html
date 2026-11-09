@@ -70,6 +70,7 @@ hr.dv{border:none;border-top:1px solid var(--bdr);margin:0 48px}
 .cb{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bdr);border-radius:2px;padding:11px 18px;background:var(--bg);font-size:13px;color:var(--wh);opacity:1;transform:none;transition:all .4s ease}
 .cb:hover{border-color:var(--ac2)}
 .cb::before{content:'✦';color:var(--ac2);font-size:10px}
+.cb.in-progress::before{content:'⏳';color:#f5a623;font-size:12px}
 #lg{background:var(--sur)}
 .lgl{display:flex;flex-wrap:wrap;gap:14px;max-width:880px}
 .lgi{display:flex;align-items:center;gap:10px;border:1px solid var(--bdr);border-radius:2px;padding:14px 24px;background:var(--bg);opacity:1;transform:none;transition:all .45s ease;min-width:150px}
@@ -81,8 +82,6 @@ hr.dv{border:none;border-top:1px solid var(--bdr);margin:0 48px}
 .cg{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:44px}
 .ci{display:flex;align-items:center;gap:9px;border:1px solid var(--bdr);padding:14px 26px;border-radius:2px;color:var(--tx);text-decoration:none;transition:all .2s;font-size:13px}
 .ci:hover{border-color:var(--ac);color:var(--ac)}
-
-/* DOWNLOAD CV — bottom banner */
 #dl{background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:80px 48px;text-align:center;position:relative;overflow:hidden;z-index:1}
 #dl::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(91,141,239,.10),transparent 70%);pointer-events:none}
 .dl-tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-bottom:16px;position:relative}
@@ -93,13 +92,10 @@ hr.dv{border:none;border-top:1px solid var(--bdr);margin:0 48px}
 .dl-btn svg{width:16px;height:16px;transition:transform .3s ease}
 .dl-btn:hover svg{transform:translateY(3px)}
 .dl-meta{margin-top:18px;font-size:11px;color:var(--mu);letter-spacing:.05em;position:relative}
-
 footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:11px;color:var(--mu);position:relative;z-index:1}
 .fu{opacity:0;transform:translateY(20px);animation:fu .7s ease forwards}
 .fu:nth-child(1){animation-delay:.1s}.fu:nth-child(2){animation-delay:.25s}.fu:nth-child(3){animation-delay:.4s}.fu:nth-child(4){animation-delay:.55s}
 @keyframes fu{to{opacity:1;transform:none}}
-
-/* PROJECTS */
 #pr{background:var(--sur)}
 .proj-card{border:1px solid var(--bdr);border-radius:2px;background:var(--bg);margin-bottom:56px;overflow:hidden;opacity:1;transform:none;transition:all .65s ease}
 .proj-card:last-child{margin-bottom:0}
@@ -130,7 +126,7 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
 .cfg-name{font-size:11px;color:var(--ac);letter-spacing:.1em}
 .cfg-copy{background:transparent;border:1px solid var(--bdr);color:var(--mu);padding:5px 14px;font-size:11px;font-family:var(--mn);border-radius:2px;cursor:pointer;transition:all .2s}
 .cfg-copy:hover{border-color:var(--ac);color:var(--ac)}
-.cfg-box{background:#040709;border:1px solid var(--bdr);border-radius:2px;padding:20px 22px;max-height:500px;overflow-y:auto}
+.cfg-box{background:#040709;border:1px solid var(--bdr);border-radius:2px;padding:20px 22px;max-height:500px;overflow-y:auto;margin-bottom:20px}
 .cfg-box pre{font-family:var(--mn);font-size:11.5px;color:#7ecfb3;line-height:1.75;white-space:pre;word-break:normal}
 .lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:16px}
 .lb.open{display:flex}
@@ -175,9 +171,8 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
   <p class="slbl">// 01</p><h2>Experience</h2>
   <div class="tl">
     
-    <!-- NEW MCOON EXPERIENCE ADDED HERE -->
     <div class="ti">
-      <div class="td">Aug — Oct 2026</div>
+      <div class="td">17/08/2026 — 31/10/2026</div>
       <div class="tb">
         <p class="tc">MCOON Morocco Ltd · Fes</p>
         <p class="tr">Systems Engineer</p>
@@ -190,10 +185,44 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
       </div>
     </div>
 
-    <div class="ti"><div class="td">2024 — 2026</div><div class="tb"><p class="tc">Axians IT Solution · Marrakech</p><p class="tr">IT Network Technician (Agency Contract)</p><ul class="tbl"><li><strong>Network Infrastructure:</strong> Managed the configuration, deployment, and maintenance of enterprise-grade switches, routers, and firewalls to ensure maximum uptime.</li><li><strong>Network Supervision:</strong> Monitored network performance and traffic using supervision tools to proactively identify and resolve connectivity issues.</li><li><strong>Security &amp; Surveillance:</strong> Deployed and managed intelligent CCTV systems, utilizing AI-driven video analytics and integrated security protocols.</li><li><strong>Optimization:</strong> Performed regular hardware audits and firmware updates to enhance network security and operational efficiency.</li></ul></div></div>
-    <div class="ti"><div class="td">2023 — 2024</div><div class="tb"><p class="tc">Telco-solution (Call centre) · Casablanca</p><p class="tr">Technical Support Technician (CDI)</p><ul class="tbl"><li><strong>Hardware Management:</strong> Installed, configured, and maintained IT hardware including workstations, printers, and peripheral devices.</li><li><strong>User Support:</strong> Provided end-user technical assistance and troubleshooting to ensure operational continuity.</li><li><strong>Troubleshooting:</strong> Diagnosed and resolved complex hardware and software failures.</li><li><strong>Infrastructure Oversight:</strong> Managed Local Area Networks (LAN) and monitored system performance to ensure stability.</li></ul></div></div>
-    <div class="ti"><div class="td">Jul — Nov 2023</div><div class="tb"><p class="tc">Axians IT Solution · Marrakech</p><p class="tr">IT Network Technician Intern</p><ul class="tbl"><li>Supported infrastructure deployment and network hardware diagnostics.</li></ul></div></div>
-    <div class="ti"><div class="td">May — Jun 2023</div><div class="tb"><p class="tc">Axians IT Solution · Marrakech</p><p class="tr">IT Network Technician Intern</p><ul class="tbl"><li>Assisted in daily IT operations and network equipment setup.</li></ul></div></div>
+    <div class="ti">
+      <div class="td">01/08/2024 — 30/06/2026</div>
+      <div class="tb">
+        <p class="tc">Axians IT Solution · Casablanca</p>
+        <p class="tr">Network Technician (Interim)</p>
+        <ul class="tbl">
+          <li><strong>Infrastructure:</strong> Deployed high-density LAN/WLAN infrastructures and configured multi-vendor equipment (Huawei, Cisco, Ruckus, Aruba).</li>
+          <li><strong>Security &amp; Surveillance:</strong> Secured network perimeters with FortiGate and Huawei iSec firewalls. Deployed Hikvision and Bosch IP cameras, NVRs, and video supervision via HikCentral / BVMS.</li>
+          <li><strong>Supervision:</strong> Set up centralized network supervision and monitoring with SolarWinds and Huawei eSight.</li>
+          <li><strong>Troubleshooting:</strong> Diagnosed and resolved LAN, WLAN, and WAN faults (TCP/IP, addressing, routing).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ti">
+      <div class="td">01/12/2023 — 30/06/2024</div>
+      <div class="tb">
+        <p class="tc">Telco-solution · Casablanca</p>
+        <p class="tr">IT Support Technician (Permanent Contract)</p>
+        <ul class="tbl">
+          <li><strong>Hardware Management:</strong> Installed, configured, and maintained IT hardware (workstations, printers, peripherals).</li>
+          <li><strong>User Support:</strong> Provided technical assistance and troubleshooting to users to ensure operational continuity.</li>
+          <li><strong>Infrastructure Oversight:</strong> Managed Local Area Networks (LAN) and monitored system performance to ensure stability.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ti">
+      <div class="td">01/08/2023 — 31/10/2023</div>
+      <div class="tb">
+        <p class="tc">Axians IT Solution · Marrakech</p>
+        <p class="tr">Network Technician Intern (UM6P Project)</p>
+        <ul class="tbl">
+          <li>Participated in infrastructure deployment, network hardware diagnostics, and daily IT operations.</li>
+          <li>Deployed and configured Cisco and Meraki switches, Wi-Fi access points, and IP cameras.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 <hr class="dv"/>
@@ -263,15 +292,12 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
       </div>
       <div class="sn">AWS Cloud</div>
     </div>
-
-    <!-- NEW DOCKER / NGINX SKILL ADDED HERE -->
     <div class="sc">
       <div class="sc-logos">
         <span class="lchip active"><img src="https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/Windows%20Server%20%26%20Linux%20OS%20Administration/linux%20logo.png" alt="Linux"/></span>
       </div>
       <div class="sn">Linux, Docker &amp; Nginx</div>
     </div>
-
     <div class="sc">
       <div class="sc-logos multi">
         <span class="lchip"><img src="https://raw.githubusercontent.com/mohssinaitameur03-dot/MohssinAitAmeur.github.io/main/Windows%20Server%20%26%20Linux%20OS%20Administration/linux%20logo.png" alt="Linux"/></span>
@@ -363,13 +389,13 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
     <div class="ppane" id="ipsec-config">
       <div class="cfg-bar">
         <span class="cfg-name">&#128196; config.txt — Cisco ISR Configuration</span>
-        <button class="cfg-copy" onclick="copyConfig()">Copy</button>
+        <button class="cfg-copy" onclick="copyConfig('cfg-content', this)">Copy</button>
       </div>
       <div class="cfg-box"><pre id="cfg-content"><span style="color:var(--mu);font-style:italic">Loading config.txt…</span></pre></div>
     </div>
   </div>
 
-  <!-- NEW TLS REVERSE PROXY LAB ADDED HERE -->
+  <!-- TLS REVERSE PROXY -->
   <div class="proj-card" id="proj-tls">
     <div class="ph">
       <p class="ph-tag">Docker · Nginx · OpenSSL · PKI · TLS 1.3</p>
@@ -377,6 +403,7 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
     </div>
     <div class="ptabs">
       <button class="ptab act" onclick="switchTab('tls','overview',this)">Overview</button>
+      <button class="ptab" onclick="switchTab('tls','config',this);loadTLSConfig()">Config Files</button>
       <button class="ptab" onclick="switchTab('tls','gallery',this)">Gallery</button>
     </div>
     <div class="ppane act" id="tls-overview">
@@ -384,17 +411,83 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
       <p class="ov-st">Technical Specifications</p>
       <ul class="spl">
         <li><strong>Architecture:</strong> Deployed a Docker environment with an isolated backend web server (Nginx) and a frontend Reverse Proxy.</li>
-        <li><strong>Public Key Infrastructure (PKI):</strong> Simulated a Certificate Authority (CA) using <code>OpenSSL</code> to generate private keys, create Certificate Signing Requests (CSRs), and sign the server certificate.</li>
         <li><strong>TLS Termination:</strong> Configured Nginx to handle HTTPS traffic on port 443, offloading encryption from the backend application.</li>
         <li><strong>Security Hardening:</strong> Enforced TLS 1.2/1.3, configured secure cipher suites, and set up HTTP-to-HTTPS redirection.</li>
         <li><strong>Trust Management:</strong> Imported the custom Root CA into the host machine and browser trust stores to ensure end-to-end validation.</li>
       </ul>
-      <p class="ov-st">Validation</p>
+      <p class="ov-st">PKI &amp; OpenSSL Validation</p>
       <ul class="spl">
-        <li>Verified the complete TLS handshake and certificate chain using <code>openssl s_client</code>.</li>
-        <li>Confirmed HTTP-to-HTTPS redirection and secure backend connectivity via Docker bridge networking.</li>
+        <li><strong>Certificate Authority:</strong> Generated a custom Root CA and private key using OpenSSL.</li>
+        <li><strong>CSR Generation:</strong> Created a Certificate Signing Request (CSR) for <code>lab.local</code>, including Subject Alternative Names (SAN) for <code>localhost</code> and <code>127.0.0.1</code>.</li>
+        <li><strong>Handshake Verification:</strong> Verified the complete TLS handshake and certificate chain using <code>openssl s_client</code>. Confirmed TLSv1.3 encryption and <code>Verify return code: 0 (ok)</code>.</li>
       </ul>
     </div>
+    
+    <div class="ppane" id="tls-config">
+      <div class="cfg-bar">
+        <span class="cfg-name">🐳 docker-compose.yml</span>
+        <button class="cfg-copy" onclick="copyConfig('tls-docker-cfg', this)">Copy</button>
+      </div>
+      <div class="cfg-box">
+        <pre id="tls-docker-cfg">
+services:
+  web:
+    build: ./web
+    container_name: lab-web
+    expose:
+      - "80"
+    restart: unless-stopped
+
+  proxy:
+    image: nginx:1.27-alpine
+    container_name: lab-proxy
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./proxy/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    restart: unless-stopped</pre>
+      </div>
+
+      <div class="cfg-bar">
+        <span class="cfg-name">🌐 default.conf (Nginx)</span>
+        <button class="cfg-copy" onclick="copyConfig('tls-nginx-cfg', this)">Copy</button>
+      </div>
+      <div class="cfg-box">
+        <pre id="tls-nginx-cfg">
+server {
+    listen 80;
+    server_name lab.local localhost;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name lab.local localhost;
+
+    ssl_certificate     /etc/nginx/certs/lab.crt;
+    ssl_certificate_key /etc/nginx/certs/lab.key;
+
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 10m;
+
+    location / {
+        proxy_pass http://web:80;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}</pre>
+      </div>
+    </div>
+
     <div class="ppane" id="tls-gallery">
       <div class="gal-wrap"><img class="gal-hero" id="tls-hero-img" src="" alt=""/></div>
       <p class="gal-cap" id="tls-caption"></p>
@@ -428,6 +521,7 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
     <div class="cb">Fortinet Certified Fundamentals</div>
     <div class="cb">IT Specialist — Cybersecurity</div>
     <div class="cb">IT Specialist — Cloud Computing</div>
+    <div class="cb in-progress">AWS Certified Solutions Architect (In Progress)</div>
   </div>
 </section>
 <hr class="dv"/>
@@ -454,7 +548,6 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
   <a href="mailto:mohssinaitameur03@gmail.com" class="btn bp">Send a Message</a>
 </section>
 
-<!-- DOWNLOAD CV -->
 <section id="dl">
   <p class="dl-tag">// Resume</p>
   <p class="dl-h">Want the full picture?</p>
@@ -468,7 +561,6 @@ footer{text-align:center;padding:28px;border-top:1px solid var(--bdr);font-size:
 
 <footer>&#169; 2026 Mohssine Ait Ameur — Deployed on AWS EC2</footer>
 
-<!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLB(event)">
   <button class="lb-close" onclick="document.getElementById('lb').classList.remove('open')">&#215;</button>
   <button class="lb-prev" onclick="lbStep(-1);event.stopPropagation()">&#8592;</button>
@@ -528,8 +620,8 @@ const PROJECTS={
     images:['Topologie.png','IPesc d1.png','IPsec D2.png','POLICY.png','VPC1.png','VPC2.png','get vpn ipsec tunnel details.png','show crypto ikev2 sa.png','show crypto ipsec sa include pkts.png','show vpn ipsec phase1-interface.png','show vpn ipsec phase2-interface.png']
   },
   tls:{
-    folder:'TLS Proxy/',
-    images:['docker-compose.png','openssl-csr.png','firefox-padlock.png','nginx-config.png']
+    folder:'Lab — TLS Reverse Proxy & Local PKI/', /* Exact GitHub folder name */
+    images:['firefox-padlock.png'] /* Add more images to this array as you upload them */
   }
 };
 const galIdx={advpn:0,ipsec:0,tls:0};
@@ -602,9 +694,17 @@ function loadConfig(){
     .then(t=>{document.getElementById('cfg-content').textContent=t;cfgLoaded=true;})
     .catch(()=>{document.getElementById('cfg-content').textContent='Could not load config.txt — ensure the file is publicly accessible in your GitHub repo.';});
 }
-function copyConfig(){
-  navigator.clipboard.writeText(document.getElementById('cfg-content').textContent).then(()=>{
-    const b=document.querySelector('.cfg-copy');b.textContent='Copied!';setTimeout(()=>b.textContent='Copy',2000);
+
+function loadTLSConfig(){
+  // Configs are hardcoded in the HTML so no need to fetch.
+}
+
+function copyConfig(id, btn){
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const originalText = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(()=>btn.textContent = originalText, 2000);
   });
 }
 </script>
